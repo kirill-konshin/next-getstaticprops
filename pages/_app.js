@@ -9,7 +9,8 @@ class WrappedApp extends App {
         // Call page-level getInitialProps
         ...(Component.getInitialProps
           ? await Component.getInitialProps(ctx)
-          : {})
+          : {}),
+        pathname: ctx.pathname,
       }
     };
   };
