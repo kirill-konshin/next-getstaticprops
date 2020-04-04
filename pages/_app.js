@@ -6,10 +6,6 @@ class WrappedApp extends App {
     console.log("App.getInitialProps");
     return {
       pageProps: {
-        // Call page-level getInitialProps
-        ...(Component.getInitialProps
-          ? await Component.getInitialProps(ctx)
-          : {}),
         pathname: ctx.pathname,
       }
     };
@@ -19,7 +15,7 @@ class WrappedApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <div>
-        Wrapped.
+        Wrapped {JSON.stringify(pageProps)}
         <Component {...pageProps} />
       </div>
     );
